@@ -1,0 +1,911 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/bg_image"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_height="0.0dip"
+            android:layout_weight="1.0"
+            android:layout_width="fill_parent">
+
+            <ImageView
+                android:id="@+id/image_view"
+                android:layerType="hardware"
+                android:layout_height="fill_parent"
+                android:layout_width="fill_parent"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:background="@drawable/round_border_semi_transparent_white"
+                android:clickable="true"
+                android:focusable="true"
+                android:id="@+id/btn_back"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5.0dip"
+                android:layout_marginTop="5.0dip"
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:padding="8.0dip"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:contentDescription="back"
+                    android:layout_height="20.0dip"
+                    android:layout_width="20.0dip"
+                    android:src="@mipmap/back"
+                    app:tint="@color/colorPrimaryDark" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/round_border_semi_transparent_white"
+                android:clickable="true"
+                android:focusable="true"
+                android:id="@+id/btn_rate_me"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15.0dip"
+                android:layout_marginTop="5.0dip"
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:padding="8.0dip"
+                app:layout_constraintEnd_toStartOf="@id/btn_user_center"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:contentDescription="back"
+                    android:layout_height="20.0dip"
+                    android:layout_width="20.0dip"
+                    android:src="@mipmap/feedback_and_rate" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/round_border_semi_transparent_white"
+                android:clickable="true"
+                android:focusable="true"
+                android:id="@+id/btn_user_center"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5.0dip"
+                android:layout_marginTop="5.0dip"
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:padding="8.0dip"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:contentDescription="back"
+                    android:layout_height="20.0dip"
+                    android:layout_width="20.0dip"
+                    android:src="@mipmap/user_center"
+                    app:tint="@color/colorPrimaryDark" />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:alpha="0.8"
+                android:gravity="center"
+                android:id="@+id/hd_switcher"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5.0dip"
+                android:layout_width="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:alpha="0.8"
+                    android:gravity="center_vertical"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:background="@drawable/bg_hd_switcher"
+                        android:id="@+id/hd_text_view"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:paddingBottom="2.0dip"
+                        android:paddingEnd="23.0dip"
+                        android:paddingStart="8.0dip"
+                        android:paddingTop="2.0dip"
+                        android:text="@string/hd"
+                        android:textAlignment="center"
+                        android:textSize="15.0sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:background="@drawable/bg_hd_switcher"
+                        android:id="@+id/sd_text_view"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:paddingBottom="2.0dip"
+                        android:paddingEnd="8.0dip"
+                        android:paddingStart="23.0dip"
+                        android:paddingTop="2.0dip"
+                        android:text="@string/sd"
+                        android:textAlignment="center"
+                        android:textSize="15.0sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <ImageView
+                    android:background="@drawable/round_border_white2"
+                    android:contentDescription="hd"
+                    android:id="@+id/hd_switcher_image"
+                    android:layout_height="36.0dip"
+                    android:layout_width="36.0dip"
+                    android:padding="5.0dip"
+                    android:src="@mipmap/ic_hd_noactive"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20.0dip"
+                android:layout_width="fill_parent"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/hd_switcher">
+
+                <TextView
+                    android:background="@drawable/round_square_border"
+                    android:id="@+id/style_ratio_show"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:paddingBottom="5.0dip"
+                    android:paddingEnd="10.0dip"
+                    android:paddingStart="10.0dip"
+                    android:paddingTop="5.0dip"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12.0sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bottom_btns"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:orientation="horizontal"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <LinearLayout
+                    android:background="@drawable/round_border_semi_transparent_white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/btn_tune"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginStart="5.0dip"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8.0dip">
+
+                    <ImageView
+                        android:contentDescription="tune"
+                        android:layout_height="20.0dip"
+                        android:layout_width="20.0dip"
+                        android:src="@mipmap/tune" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@drawable/round_border_semi_transparent_white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/btn_crop"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginStart="18.0dip"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8.0dip">
+
+                    <ImageView
+                        android:contentDescription="crop"
+                        android:layout_height="20.0dip"
+                        android:layout_width="20.0dip"
+                        android:src="@mipmap/ic_crop" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@drawable/round_border_semi_transparent_white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/btn_frame"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginStart="18.0dip"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8.0dip">
+
+                    <ImageView
+                        android:contentDescription="crop"
+                        android:layout_height="20.0dip"
+                        android:layout_width="20.0dip"
+                        android:src="@mipmap/ic_frame" />
+                </LinearLayout>
+
+                <View
+                    android:layout_height="1.0dip"
+                    android:layout_weight="1.0"
+                    android:layout_width="54.0dip" />
+
+                <LinearLayout
+                    android:background="@drawable/round_border_semi_transparent_white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/btn_mall"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10.0dip"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8.0dip"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_height="20.0dip"
+                        android:layout_width="20.0dip"
+                        android:src="@mipmap/mall" />
+                </LinearLayout>
+
+                <View
+                    android:layout_height="1.0dip"
+                    android:layout_weight="1.0"
+                    android:layout_width="0.0dip" />
+
+                <LinearLayout
+                    android:background="@drawable/round_border_semi_transparent_white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/btn_person"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginEnd="18.0dip"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8.0dip"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/btn_person_image"
+                        android:layout_height="20.0dip"
+                        android:layout_width="20.0dip"
+                        android:src="@mipmap/person" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@drawable/round_border_semi_transparent_white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/btn_save"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginEnd="18.0dip"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8.0dip">
+
+                    <ImageView
+                        android:layout_height="20.0dip"
+                        android:layout_width="20.0dip"
+                        android:src="@mipmap/ic_save" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@drawable/round_border_semi_transparent_white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/btn_share"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginEnd="5.0dip"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8.0dip">
+
+                    <ImageView
+                        android:layout_height="20.0dip"
+                        android:layout_width="20.0dip"
+                        android:src="@mipmap/ic_share" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:id="@+id/loading_progress_bar"
+                android:layout_centerInParent="true"
+                android:layout_height="fill_parent"
+                android:layout_width="fill_parent"
+                android:orientation="vertical"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.musketeer.drawart.components.MagicProgressCircle
+                    android:id="@+id/loading_progress_bar_progress"
+                    android:layout_height="70.0dip"
+                    android:layout_width="70.0dip"
+                    app:mpc_default_color="@color/mpc_default_color"
+                    app:mpc_end_color="@color/mpc_end_color"
+                    app:mpc_foot_over_head="true"
+                    app:mpc_start_color="@color/mpc_start_color"
+                    app:mpc_stroke_width="15.0dip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:id="@+id/init_progress_bar"
+                android:layout_centerInParent="true"
+                android:layout_height="fill_parent"
+                android:layout_width="fill_parent"
+                android:orientation="vertical"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.wang.avi.AVLoadingIndicatorView
+                    android:layout_height="60.0dip"
+                    android:layout_width="60.0dip"
+                    app:indicatorName="BallGridPulseIndicator" />
+
+                <TextView
+                    android:id="@+id/init_progress_bar_text"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10.0dip"
+                    android:layout_width="wrap_content"
+                    android:text="@string/initing"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="14.0sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:background="@color/transparent"
+            android:id="@+id/style_class_list"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:paddingEnd="5.0dip"
+            android:paddingStart="5.0dip"
+            android:scrollbars="horizontal" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:background="@color/transparent"
+            android:id="@+id/style_image_list"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:paddingEnd="5.0dip"
+            android:paddingStart="5.0dip"
+            android:scrollbars="horizontal" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/bottom_sheet"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="0.0dip"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+
+        <ImageView
+            android:id="@+id/bg_image_bottom_sheet"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_height="0.0dip"
+                android:layout_weight="1.0"
+                android:layout_width="fill_parent">
+
+                <com.ortiz.touchview.TouchImageView
+                    android:id="@+id/tune_image_view"
+                    android:layout_height="fill_parent"
+                    android:layout_width="fill_parent"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
+
+                    <LinearLayout
+                        android:background="@drawable/round_border_semi_transparent_white"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:id="@+id/tune_btn_cancel"
+                        android:layout_height="36.0dip"
+                        android:layout_margin="5.0dip"
+                        android:layout_width="36.0dip"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:contentDescription="back"
+                            android:layout_height="20.0dip"
+                            android:layout_width="20.0dip"
+                            android:src="@mipmap/close" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:layout_width="0.0dip">
+
+                        <LinearLayout
+                            android:background="@drawable/round_border_semi_transparent_white"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:id="@+id/tune_btn_reset"
+                            android:layout_height="36.0dip"
+                            android:layout_margin="5.0dip"
+                            android:layout_width="36.0dip"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:contentDescription="refresh"
+                                android:layout_height="20.0dip"
+                                android:layout_width="20.0dip"
+                                android:src="@mipmap/refresh" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:background="@drawable/round_border_semi_transparent_white"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:id="@+id/tune_btn_confirm"
+                        android:layout_height="36.0dip"
+                        android:layout_margin="5.0dip"
+                        android:layout_width="36.0dip"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:contentDescription="confirm"
+                            android:layout_height="20.0dip"
+                            android:layout_width="20.0dip"
+                            android:src="@mipmap/check" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:id="@+id/tune_loading_progress_bar"
+                    android:layout_centerInParent="true"
+                    android:layout_height="fill_parent"
+                    android:layout_width="fill_parent"
+                    android:orientation="vertical"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.wang.avi.AVLoadingIndicatorView
+                        android:layout_height="60.0dip"
+                        android:layout_width="60.0dip"
+                        app:indicatorName="BallGridPulseIndicator" />
+
+                    <TextView
+                        android:id="@+id/tune_loading_progress_bar_text"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10.0dip"
+                        android:layout_width="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="14.0sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ScrollView
+                android:layout_height="175.0dip"
+                android:layout_width="fill_parent">
+
+                <LinearLayout
+                    android:background="@color/semi_transparent_dark"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/tune_panel"
+                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:gravity="center_vertical"
+                        android:layout_height="35.0dip"
+                        android:layout_width="fill_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10.0dip"
+                            android:layout_width="80.0dip"
+                            android:text="@string/keep_color"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/white"
+                            android:textSize="14.0sp" />
+
+                        <SeekBar
+                            android:id="@+id/keep_color_seek_bar"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:layout_width="0.0dip"
+                            android:max="100"
+                            android:min="0"
+                            android:paddingEnd="15.0dip"
+                            android:paddingStart="15.0dip"
+                            android:thumb="@drawable/slider_thumb_normal" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:gravity="center_vertical"
+                        android:layout_height="35.0dip"
+                        android:layout_width="fill_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10.0dip"
+                            android:layout_width="80.0dip"
+                            android:text="@string/style_percent"
+                            android:textColor="@color/white"
+                            android:textSize="14.0sp" />
+
+                        <SeekBar
+                            android:backgroundTint="@color/white"
+                            android:foregroundTint="@color/white"
+                            android:id="@+id/style_seek_bar"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:layout_width="0.0dip"
+                            android:max="255"
+                            android:min="0"
+                            android:paddingEnd="15.0dip"
+                            android:paddingStart="15.0dip"
+                            android:thumb="@drawable/slider_thumb_normal"
+                            android:tickMarkTint="@color/white" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:gravity="center_vertical"
+                        android:layout_height="35.0dip"
+                        android:layout_width="fill_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10.0dip"
+                            android:layout_width="80.0dip"
+                            android:text="@string/saturation"
+                            android:textColor="@color/white"
+                            android:textSize="14.0sp" />
+
+                        <SeekBar
+                            android:backgroundTint="@color/white"
+                            android:foregroundTint="@color/white"
+                            android:id="@+id/saturation_seek_bar"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:layout_width="0.0dip"
+                            android:max="100"
+                            android:min="0"
+                            android:paddingEnd="15.0dip"
+                            android:paddingStart="15.0dip"
+                            android:thumb="@drawable/slider_thumb_normal"
+                            android:tickMarkTint="@color/white" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:gravity="center_vertical"
+                        android:layout_height="35.0dip"
+                        android:layout_width="fill_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10.0dip"
+                            android:layout_width="80.0dip"
+                            android:text="@string/exposure"
+                            android:textColor="@color/white"
+                            android:textSize="14.0sp" />
+
+                        <SeekBar
+                            android:backgroundTint="@color/white"
+                            android:foregroundTint="@color/white"
+                            android:id="@+id/exposure_seek_bar"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:layout_width="0.0dip"
+                            android:max="100"
+                            android:min="0"
+                            android:paddingEnd="15.0dip"
+                            android:paddingStart="15.0dip"
+                            android:thumb="@drawable/slider_thumb_normal"
+                            android:tickMarkTint="@color/white" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:gravity="center_vertical"
+                        android:layout_height="35.0dip"
+                        android:layout_width="fill_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10.0dip"
+                            android:layout_width="80.0dip"
+                            android:text="@string/contrast"
+                            android:textColor="@color/white"
+                            android:textSize="14.0sp" />
+
+                        <SeekBar
+                            android:backgroundTint="@color/white"
+                            android:foregroundTint="@color/white"
+                            android:id="@+id/contrast_seek_bar"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:layout_width="0.0dip"
+                            android:max="50"
+                            android:min="10"
+                            android:paddingEnd="15.0dip"
+                            android:paddingStart="15.0dip"
+                            android:thumb="@drawable/slider_thumb_normal"
+                            android:tickMarkTint="@color/white" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:gravity="center_vertical"
+                        android:layout_height="35.0dip"
+                        android:layout_width="fill_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10.0dip"
+                            android:layout_width="80.0dip"
+                            android:text="@string/brightness"
+                            android:textColor="@color/white"
+                            android:textSize="14.0sp" />
+
+                        <SeekBar
+                            android:backgroundTint="@color/white"
+                            android:foregroundTint="@color/white"
+                            android:id="@+id/brightness_seek_bar"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:layout_width="0.0dip"
+                            android:max="100"
+                            android:min="0"
+                            android:paddingEnd="15.0dip"
+                            android:paddingStart="15.0dip"
+                            android:thumb="@drawable/slider_thumb_normal"
+                            android:tickMarkTint="@color/white" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:gravity="center_vertical"
+                        android:layout_height="35.0dip"
+                        android:layout_width="fill_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10.0dip"
+                            android:layout_width="80.0dip"
+                            android:text="@string/sharpen"
+                            android:textColor="@color/white"
+                            android:textSize="14.0sp" />
+
+                        <SeekBar
+                            android:backgroundTint="@color/white"
+                            android:foregroundTint="@color/white"
+                            android:id="@+id/sharpen_seek_bar"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:layout_width="0.0dip"
+                            android:max="100"
+                            android:min="0"
+                            android:paddingEnd="15.0dip"
+                            android:paddingStart="15.0dip"
+                            android:thumb="@drawable/slider_thumb_normal"
+                            android:tickMarkTint="@color/white" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:gravity="center_vertical"
+                        android:layout_height="35.0dip"
+                        android:layout_width="fill_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10.0dip"
+                            android:layout_width="80.0dip"
+                            android:text="@string/highlights"
+                            android:textColor="@color/white"
+                            android:textSize="14.0sp" />
+
+                        <SeekBar
+                            android:backgroundTint="@color/white"
+                            android:foregroundTint="@color/white"
+                            android:id="@+id/highlights_seek_bar"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:layout_width="0.0dip"
+                            android:max="100"
+                            android:min="0"
+                            android:paddingEnd="15.0dip"
+                            android:paddingStart="15.0dip"
+                            android:thumb="@drawable/slider_thumb_normal"
+                            android:tickMarkTint="@color/white" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:gravity="center_vertical"
+                        android:layout_height="35.0dip"
+                        android:layout_width="fill_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10.0dip"
+                            android:layout_width="80.0dip"
+                            android:text="@string/shadows"
+                            android:textColor="@color/white"
+                            android:textSize="14.0sp" />
+
+                        <SeekBar
+                            android:backgroundTint="@color/white"
+                            android:foregroundTint="@color/white"
+                            android:id="@+id/shadows_seek_bar"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:layout_width="0.0dip"
+                            android:max="100"
+                            android:min="0"
+                            android:paddingEnd="15.0dip"
+                            android:paddingStart="15.0dip"
+                            android:thumb="@drawable/slider_thumb_normal"
+                            android:tickMarkTint="@color/white" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:gravity="center_vertical"
+                        android:layout_height="35.0dip"
+                        android:layout_width="fill_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10.0dip"
+                            android:layout_width="80.0dip"
+                            android:text="@string/vibrance"
+                            android:textColor="@color/white"
+                            android:textSize="14.0sp" />
+
+                        <SeekBar
+                            android:backgroundTint="@color/white"
+                            android:foregroundTint="@color/white"
+                            android:id="@+id/vibrance_seek_bar"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:layout_width="0.0dip"
+                            android:max="100"
+                            android:min="0"
+                            android:paddingEnd="15.0dip"
+                            android:paddingStart="15.0dip"
+                            android:thumb="@drawable/slider_thumb_normal"
+                            android:tickMarkTint="@color/white" />
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:background="@color/semi_transparent_user_intro"
+        android:clickable="true"
+        android:focusable="true"
+        android:id="@+id/user_intro"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:adjustViewBounds="true"
+            android:id="@+id/user_intro_all_in_one"
+            android:layout_gravity="center"
+            android:layout_height="fill_parent"
+            android:layout_margin="5.0dip"
+            android:layout_width="fill_parent"
+            android:scaleType="fitXY"
+            android:src="@mipmap/user_intro" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:background="@drawable/bg_quota"
+        android:id="@+id/quote"
+        android:layout_gravity="bottom|center"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="190.0dip"
+        android:layout_marginEnd="20.0dip"
+        android:layout_marginStart="20.0dip"
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="10.0dip"
+        android:paddingEnd="15.0dip"
+        android:paddingStart="15.0dip"
+        android:paddingTop="10.0dip"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/quote_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5.0dip"
+            android:layout_width="fill_parent"
+            android:textAlignment="textStart"
+            android:textColor="@color/toast_text"
+            android:textSize="14.0sp" />
+
+        <TextView
+            android:id="@+id/quote_author"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:textAlignment="textEnd"
+            android:textColor="@color/toast_text"
+            android:textSize="12.0sp" />
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
